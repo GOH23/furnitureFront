@@ -52,7 +52,7 @@ export default function Header() {
             <div className="max-sm:hidden flex flex-row basis-1/2 justify-around">
                 {Service.loading ? <></> : <HeaderItem toPath="/services" text="Услуги" subItems={Service.categories?.map((el) => { return { text: el.serviceName, toPath: `/services?furnitureName=${el.serviceName}` } })} />}
                 <HeaderItem toPath="/examples" text="Портфолио" />
-                <HeaderItem toPath="/our_team" text="Команда" />
+                {/* <HeaderItem toPath="/our_team" text="Команда" /> */}
                 <HeaderItem toPath="/reviews" text="Отзывы" />
             </div>
             <div onClick={() => {
