@@ -17,6 +17,8 @@ export default function ModalShopCart({ onClose, Open, }: ShopCartType) {
     const [CountRendered, SetCountRendered] = useState(5)
     const SetViewSelected = useViewSelected((state) => state.setViewSelected);
     const productsId = useProductsId((state) => state.products);
+    const setProducts = useProductsId((state) => state.setProductIds)
+    const [TelegramName, SetTelegramName] = useState("")
     const { data, isLoading, error, mutate } = useSWR(
         productsId.length > 0 ? `/furniture/service/${productsId.join(',')}` : null,
         async (url) => {
@@ -42,10 +44,29 @@ export default function ModalShopCart({ onClose, Open, }: ShopCartType) {
     return <Modal footer={
         <Form layout="inline">
             <Form.Item>
-                <Input prefix={<img src="https://ifellow.ru/academy/tg.png" className="size-5 object-cover" />} placeholder="Telegram никнейм" />
+                <Input onChange={(el) => {
+                    SetTelegramName(el.target.value)
+                }} prefix={<img src="https://ifellow.ru/academy/tg.png" className="size-5 object-cover" />} placeholder="Telegram никнейм" />
             </Form.Item>
+            {/* <Form.Item>
+                <Button onClick={() => {
+
+                }} type="primary">Подтвердить</Button>
+            </Form.Item> */}
             <Form.Item>
-                <Button type="primary">Отправить данные менеджеру</Button>
+                <Button onClick={() => {
+                    fetch(BACKEND_URL + "/furniture/shopcart/send", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            products: productsId,
+                            telegramName: TelegramName
+                        }),
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    })
+                    setProducts([]);
+                }} disabled={TelegramName == ""} type="primary">Отправить данные менеджеру</Button>
             </Form.Item>
         </Form>
     } title={<div className="flex items-center">
@@ -68,7 +89,7 @@ export default function ModalShopCart({ onClose, Open, }: ShopCartType) {
         </div> : <div className="grid grid-cols-3 gap-1 max-h-[500px] overflow-y-scroll">
             {Products?.map((el: service_type, ind) => <div key={ind} ref={Products.length == ind + 1 ? ref : null} className="min-h-[120px] p-5 rounded-md border border-[#]" >
                 <div className="flex flex-col justify-center">
-                    <Image src={BACKEND_URL + el.Image}/>
+                    <Image src={BACKEND_URL + el.Image} />
                     <p className="font-bold text-center text-[17px]">{el.Name}</p>
                     <p className="font-bold text-[14px] text-right text-gray-500">{el.Price && `${el.Price} руб.`} </p>
                 </div>

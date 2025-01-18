@@ -365,6 +365,7 @@ export function CalculatePriceStep({ SelectedModal, SetSteps,CloseModal }: { Sel
                                 FloorNum: 1,
                                 TgName: ""
                             })
+                            CloseModal();
                         })
                     }} className="max-w-96 w-full">Отправить заявку менеджеру</ANTDButton>
                 </div>}
