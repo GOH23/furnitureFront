@@ -1,4 +1,4 @@
-import { Badge, Button, Form, Input, Modal, Radio, Image } from "antd"
+import { Badge, Button, Form, Input, Modal, Radio, Image, notification } from "antd"
 import { useEffect, useState } from "react"
 import { useInView } from "react-intersection-observer";
 import useProductsId from "../hooks/useProductsId";
@@ -30,6 +30,7 @@ export default function ModalShopCart({ onClose, Open, }: ShopCartType) {
     const { ref, inView, entry } = useInView({
         threshold: 0,
     });
+    const [api, contextHolder] = notification.useNotification();
     useEffect(() => {
         if (data) SetProducts(data);
     }, [data]);
@@ -42,18 +43,18 @@ export default function ModalShopCart({ onClose, Open, }: ShopCartType) {
         }
     }, [inView])
     return <Modal footer={
-        <Form layout="inline">
+        <Form >
             <Form.Item>
                 <Input onChange={(el) => {
                     SetTelegramName(el.target.value)
-                }} prefix={<img src="https://ifellow.ru/academy/tg.png" className="size-5 object-cover" />} placeholder="Telegram никнейм" />
+                }} prefix={<img src="https://ifellow.ru/academy/tg.png" className="size-5 object-cover" />} className="max-sm:w-full" placeholder="Telegram никнейм" />
             </Form.Item>
             {/* <Form.Item>
                 <Button onClick={() => {
 
                 }} type="primary">Подтвердить</Button>
             </Form.Item> */}
-            <Form.Item>
+            <Form.Item className="max-sm:w-full" >
                 <Button onClick={() => {
                     fetch(BACKEND_URL + "/furniture/shopcart/send", {
                         method: "POST",
@@ -64,8 +65,21 @@ export default function ModalShopCart({ onClose, Open, }: ShopCartType) {
                         headers: {
                             "Content-Type": "application/json"
                         }
+                    }).catch((err) => {
+                        api.error({
+                            message: `Ошибка отправки`,
+                            description: `Ошибка ${err}`,
+                            placement: "topLeft",
+                            pauseOnHover: true,
+                            showProgress: true
+                        })
+                    }).finally(() => {
+                        setProducts([]);
+                        SetProducts([]);
+                        SetTelegramName("");
+                        onClose();
                     })
-                    setProducts([]);
+
                 }} disabled={TelegramName == ""} type="primary">Отправить данные менеджеру</Button>
             </Form.Item>
         </Form>
@@ -79,6 +93,7 @@ export default function ModalShopCart({ onClose, Open, }: ShopCartType) {
             <Radio.Button value="view2" ><TableOutlined /></Radio.Button>
         </Radio.Group>
     </div>} loading={isLoading} open={Open} onCancel={onClose} >
+        {contextHolder}
         {viewSelected == "view1" ? <div className="max-h-[500px] flex flex-col gap-y-2 overflow-auto">
             {Products?.map((el: service_type, ind) => <div key={ind} ref={Products.length == ind + 1 ? ref : null} className="min-h-[120px] p-5 rounded-md border border-[#]" >
                 <div className="flex flex-col justify-center">
