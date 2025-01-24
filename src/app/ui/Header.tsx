@@ -52,8 +52,8 @@ export default function Header() {
             <div className="max-sm:hidden flex flex-row basis-1/2 justify-around">
                 {Service.loading ? <></> : <HeaderItem toPath="/services" text="Услуги" subItems={Service.categories?.map((el) => { return { text: el.serviceName, toPath: `/services?furnitureName=${el.serviceName}` } })} />}
                 <HeaderItem toPath="/examples" text="Портфолио" />
-                {/* <HeaderItem toPath="/our_team" text="Команда" /> */}
-                <HeaderItem toPath="/reviews" text="Отзывы" />
+                <HeaderItem toPath="/our_team" text="Команда" />
+                <HeaderItem toPath="/contacts" text="Контакты"/>
             </div>
             <div onClick={() => {
                 SetOnShopCartOpened(true)
@@ -66,7 +66,7 @@ export default function Header() {
 
         </div>
         {pathname == "/" && <img className="absolute w-full object-cover top-0 -z-10 md:h-[1084px]  max-sm:h-[542px] h-[542px]" src="Rectangle 1441.png" />}
-        {pathname == "/" && <div className="flex flex-col justify-center text-center items-center h-full">
+        {pathname == "/" && <div className="flex flex-col justify-center text-center items-center mt-0 md:-mt-[100px] h-full">
             <motion.h1 {...AnimProps} transition={{ delay: .5, duration: 300, type: 'spring' }} className="md:text-[80px] sm:text-[40px] font-bold text-[30px]">Обивка и ремонт мягкой мебели
             </motion.h1>
             <motion.h1 {...AnimProps} transition={{ delay: .55, duration: 300, type: 'spring' }} className='md:text-[80px] sm:text-[40px] font-bold text-[30px]'> в Орехово-Зуево</motion.h1>
@@ -96,13 +96,13 @@ export default function Header() {
                         label: "Портфолио",
                     },
                     {
-                        key: 'team',
+                        key: 'our_team',
                         label: "Команда",
                     },
-                    // {
-                    //     key: 'reviews',
-                    //     label: "Отзывы",
-                    // }
+                    {
+                        key: 'contacts',
+                        label: "Контакты",
+                    }
                 ]}
             />
         </Drawer>
@@ -121,7 +121,7 @@ export function HeaderItem({ text, subItems, toPath }: { text: string, toPath: s
         SetOnEnter(true)
         push(toPath)
     }} onMouseLeave={() => SetOnEnter(false)} className='duration-700 items-center gap-x-1 flex relative transition-all py-2 px-4 rounded-md cursor-pointer w-max border border-transparent hover:border-white'>
-        <p>{text} </p>
+        <p className="text-lg font-bold">{text} </p>
         {subItems && <AnimatePresence mode="wait">
             {OnEnter ? <motion.div key={0} {...AnimProps} transition={{ type: 'spring', duration: .2 }}>
                 <FaAngleUp />
