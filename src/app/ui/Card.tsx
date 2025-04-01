@@ -11,6 +11,10 @@ export function SelectCard({ Name, Image, Price, serviceID, className }: { Name:
     const [api, contextHolder] = notification.useNotification();
     const [isHovered, setIsHovered] = useState(false);
     
+    // Проверяем, является ли изображение абсолютным URL
+    const isFullUrl = Image?.startsWith('http://') || Image?.startsWith('https://');
+    const imageSrc = isFullUrl ? Image : `${BACKEND_URL}${Image}`;
+    
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -30,7 +34,7 @@ export function SelectCard({ Name, Image, Price, serviceID, className }: { Name:
                 cover={
                     <div className="overflow-hidden">
                         <Img 
-                            src={`${BACKEND_URL}${Image}`}
+                            src={imageSrc}
                             className={`transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
                             preview={false}
                         />

@@ -6,10 +6,7 @@ export default function Footer() {
             <p className="font-bold text-[28px] mb-[30px]">Panto</p>
         </div>
         <div className="col-span-1 max-sm:col-span-full flex flex-col gap-y-1 justify-center">
-            <p className="text-[#F6973F] text-[17px]">Услуги</p>
-            <p className="text-[#1E1E1E] text-[17px]">Услуги</p>
-            <p className="text-[#1E1E1E] text-[17px]">Услуги</p>
-            <p className="text-[#1E1E1E] text-[17px]">Услуги</p>
+
         </div>
         <div className=" col-span-1 max-sm:col-span-full flex flex-col gap-y-1 justify-center">
             <p className="text-[#F6973F] text-[17px]">Наши социальные сети</p>
