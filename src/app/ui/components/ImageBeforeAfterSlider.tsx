@@ -135,7 +135,7 @@ export const Slider = ({ ImageAfter, ImageBefore }: { ImageBefore?: string, Imag
         
         {isEntering && !isDragging && (
           <motion.div 
-            className="absolute bottom-0 left-0 right-0 text-center text-white text-sm bg-black/50 py-1"
+            className="absolute top-0 left-0 right-0 z-50 text-center text-white text-sm bg-black/50 py-1"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}

@@ -35,7 +35,7 @@ export function SelectCard({ Name, Image, Price, serviceID, className }: { Name:
                     <div className="overflow-hidden">
                         <Img 
                             src={imageSrc}
-                            className={`transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
+                            className={`transition-transform duration-700 h-[150px] ${isHovered ? 'scale-110' : 'scale-100'}`}
                             preview={false}
                         />
                         <div 
@@ -45,7 +45,7 @@ export function SelectCard({ Name, Image, Price, serviceID, className }: { Name:
                 }
             >
                 {contextHolder}
-                <div className='flex'>
+                <div className='flex m-auto'>
                     <motion.div
                         initial={{ x: 0 }}
                         animate={isHovered ? { x: -5 } : { x: 0 }}

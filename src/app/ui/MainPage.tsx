@@ -347,10 +347,6 @@ export function MainPage({ category }: { category: category_type[] }) {
                             dynamicBullets: true
                         }}
                         navigation
-                        autoplay={{
-                            delay: 5000,
-                            disableOnInteraction: false
-                        }}
                         loop={true}
                         breakpoints={{
                             100: {

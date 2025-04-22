@@ -57,8 +57,7 @@ export default function ReviewsCard({ Data }: ReviewsProps) {
 
     return (
         <motion.div
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
+
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -103,23 +102,9 @@ export default function ReviewsCard({ Data }: ReviewsProps) {
                         </div>
                     )}
                     
-                    {isHovered && (
-                        <motion.div 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-[18px] pointer-events-none"
-                        />
-                    )}
+                   
                     
-                    {isHovered && (
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="absolute bottom-4 left-0 right-0 text-center text-white font-medium pointer-events-none"
-                        >
-                            Нажмите для просмотра
-                        </motion.div>
-                    )}
+                   
                 </div>
             </Popover>
         </motion.div>
