@@ -36,8 +36,8 @@ export default function ServicePage({ category }: { category: category_type[] })
         </div>
         <Row justify={'center'}>
             <Col span={16}>
-                {isLoading ? <Skeleton active /> : <div className='flex justify-center items-stretch  flex-wrap gap-2'>
-                    {(data as any[]).map((el, ind) => <SelectCard className='max-w-[250px] h-full' key={ind} {...el} />)}
+                {isLoading ? <Skeleton active /> : <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-fr'>
+                    {(data as any[]).map((el, ind) => <SelectCard className='w-full h-full' key={ind} {...el} />)}
                 </div>}
             </Col>
             <Col className='max-sm:hidden' span={4}>

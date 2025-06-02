@@ -25,17 +25,20 @@ export function SelectCard({ Name, Image, Price, serviceID, className }: { Name:
             onMouseLeave={() => setIsHovered(false)}
         >
             <Card
-                className={`w-auto ${className} rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300`}
+                className={`w-auto ${className} rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col`}
                 hoverable
                 bodyStyle={{
                     padding: '16px',
-                    transition: 'all 0.3s ease'
+                    transition: 'all 0.3s ease',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flex: 1
                 }}
                 cover={
-                    <div className="overflow-hidden">
+                    <div className="overflow-hidden h-[200px]">
                         <Img 
                             src={imageSrc}
-                            className={`transition-transform duration-700 h-[150px] ${isHovered ? 'scale-110' : 'scale-100'}`}
+                            className={`transition-transform duration-700 w-full h-full object-cover ${isHovered ? 'scale-110' : 'scale-100'}`}
                             preview={false}
                         />
                         <div 
@@ -45,7 +48,7 @@ export function SelectCard({ Name, Image, Price, serviceID, className }: { Name:
                 }
             >
                 {contextHolder}
-                <div className='flex m-auto'>
+                <div className='flex m-auto mt-auto'>
                     <motion.div
                         initial={{ x: 0 }}
                         animate={isHovered ? { x: -5 } : { x: 0 }}
