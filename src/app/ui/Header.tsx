@@ -148,15 +148,16 @@ type Steps = {
     StepFour?: "Работа + материал" | "Только работа",
     StepFive?: "Лифт есть" | "Лифта нету",
     FloorNum?: number,
-    TgName: string
+    PhoneNumber: string
 }
 //Модальное окно расчета стоимости
 export function CalculatePrice({ CalculateOpened, SetCalculateOpened }: { CalculateOpened: boolean, SetCalculateOpened: (state: boolean) => void }) {
     const [SelectedModal, SetSelected] = useState<Steps>({
         SelectedStep: 1,
         FloorNum: 1,
-        TgName: ""
+        PhoneNumber: ""
     })
+    const [ShowCallbackMessage, SetShowCallbackMessage] = useState(false)
     return (<Drawer mask footer={
         !(SelectedModal.SelectedStep > 5) && <div className="flex font-bold">
 
@@ -170,12 +171,13 @@ export function CalculatePrice({ CalculateOpened, SetCalculateOpened }: { Calcul
         </div>
     } placement='left' title="Расчет стоимости" open={CalculateOpened} width="100vw" onClose={() => SetCalculateOpened(false)}>
         <AnimatePresence>
-            <CalculatePriceStep CloseModal={()=>{SetCalculateOpened(false)}} SelectedModal={SelectedModal} SetSteps={SetSelected} />
+            <CalculatePriceStep CloseModal={()=>{SetCalculateOpened(false)}} SelectedModal={SelectedModal} SetSteps={SetSelected} ShowCallbackMessage={ShowCallbackMessage} SetShowCallbackMessage={SetShowCallbackMessage} />
         </AnimatePresence>
     </Drawer>)
 }
-export function CalculatePriceStep({ SelectedModal, SetSteps,CloseModal }: { SelectedModal: Steps, SetSteps: (state: Steps) => void,CloseModal: ()=>void }) {
+export function CalculatePriceStep({ SelectedModal, SetSteps,CloseModal, ShowCallbackMessage, SetShowCallbackMessage }: { SelectedModal: Steps, SetSteps: (state: Steps) => void,CloseModal: ()=>void, ShowCallbackMessage: boolean, SetShowCallbackMessage: (state: boolean) => void }) {
     const { SelectedStep } = SelectedModal
+    const [LoadingFinalStep, SetFinalStep] = useState(true)
     const [StepsData, _] = useState<{
         imageSource?: string, Value: string, Desc?: string
     }[][]>([
@@ -285,7 +287,6 @@ export function CalculatePriceStep({ SelectedModal, SetSteps,CloseModal }: { Sel
             SetFinalStep(false);
         }, 5000)
     }
-    const [LoadingFinalStep, SetFinalStep] = useState(true)
     const onChange: InputNumberProps['onChange'] = (value) => {
         SetSteps({ ...SelectedModal, FloorNum: value as number })
     };
@@ -350,8 +351,8 @@ export function CalculatePriceStep({ SelectedModal, SetSteps,CloseModal }: { Sel
                     <Spin tip="Загружаем ваш расчет" size="large" />
                 </div> : <div className="flex justify-center items-center flex-col gap-y-2"  >
                     <Input onChange={(el) => {
-                        SetSteps({ ...SelectedModal, TgName: `https://t.me/${el.target.value}` })
-                    }} className="max-w-96" prefix={<img src="https://ifellow.ru/academy/tg.png" className="size-5 object-cover" />} placeholder="Telegram никнейм" />
+                        SetSteps({ ...SelectedModal, PhoneNumber: el.target.value })
+                    }} className="max-w-96" prefix={<span className="text-lg">📞</span>} placeholder="Номер телефона" />
                     <ANTDButton onClick={async () => {
                         await fetch(BACKEND_URL + "/furniture/calculate", {
                             method: 'POST',
@@ -359,15 +360,28 @@ export function CalculatePriceStep({ SelectedModal, SetSteps,CloseModal }: { Sel
                             headers: {
                                 "Content-Type": "application/json"
                             }
-                        }).finally(() => {
-                            SetSteps({
-                                SelectedStep: 1,
-                                FloorNum: 1,
-                                TgName: ""
-                            })
-                            CloseModal();
+                        }).then(() => {
+                            SetShowCallbackMessage(true);
+                            setTimeout(() => {
+                                SetSteps({
+                                    SelectedStep: 1,
+                                    FloorNum: 1,
+                                    PhoneNumber: ""
+                                })
+                                CloseModal();
+                            }, 2000);
                         })
                     }} className="max-w-96 w-full">Отправить заявку менеджеру</ANTDButton>
+                    {ShowCallbackMessage && (
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-center text-green-600 mt-4"
+                        >
+                            <p className="font-bold">Спасибо за заявку!</p>
+                            <p>Мы свяжемся с вами в ближайшее время</p>
+                        </motion.div>
+                    )}
                 </div>}
             </motion.div>
     }

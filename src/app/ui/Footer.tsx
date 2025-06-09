@@ -8,22 +8,22 @@ export default function Footer() {
         <div className="col-span-1 max-sm:col-span-full flex flex-col gap-y-1 justify-center">
 
         </div>
-        <div className=" col-span-1 max-sm:col-span-full flex flex-col gap-y-1 justify-center">
-            <p className="text-[#F6973F] text-[17px]">Наши социальные сети</p>
-            <Link className="flex gap-x-2 justify-center items-center text-[17px] text-[#1E1E1E]" href={''}>
-                <RiTelegram2Fill />
+        <div className=" col-span-1 max-sm:col-span-full flex flex-col gap-y-4 justify-center">
+            <p className="text-[#F6973F] text-[17px] mb-2">Наши социальные сети</p>
+            <Link className="flex gap-x-3 justify-center items-center text-[17px] text-[#1E1E1E] hover:text-[#F6973F] transition-colors" href={''}>
+                <RiTelegram2Fill className="text-xl" />
                 <p className="text-center">Наш телеграм</p>
             </Link>
-            <Link className="flex gap-x-2 justify-center items-center text-[17px] text-[#1E1E1E]" href={''}>
-                <RiInstagramFill />
+            <Link className="flex gap-x-3 justify-center items-center text-[17px] text-[#1E1E1E] hover:text-[#F6973F] transition-colors" href={''}>
+                <RiInstagramFill className="text-xl" />
                 <p className="text-center">Instagram</p>
             </Link>
-            <Link className="flex gap-x-2 justify-center items-center text-[17px] text-[#1E1E1E]" href={''}>
-                <RiVkFill />
+            <Link className="flex gap-x-3 justify-center items-center text-[17px] text-[#1E1E1E] hover:text-[#F6973F] transition-colors" href={''}>
+                <RiVkFill className="text-xl" />
                 <p className="text-center">ВКонтакте</p>
             </Link>
-            <Link className="flex gap-x-2 justify-center items-center text-[17px] text-[#1E1E1E]" href={''}>
-                <RiWhatsappFill />
+            <Link className="flex gap-x-3 justify-center items-center text-[17px] text-[#1E1E1E] hover:text-[#F6973F] transition-colors" href={''}>
+                <RiWhatsappFill className="text-xl" />
                 <p className="text-center">WhatsApp</p>
             </Link>
         </div>
