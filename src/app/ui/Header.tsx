@@ -55,14 +55,14 @@ export default function Header() {
                 <HeaderItem toPath="/our_team" text="Команда" />
                 <HeaderItem toPath="/contacts" text="Контакты"/>
             </div>
-            <div onClick={() => {
+            {/* <div onClick={() => {
                 SetOnShopCartOpened(true)
             }} className='ml-auto mr-5 flex gap-x-2 bg-[#E58411] shadow-md p-1 rounded-md'>
-                {/* <SettingFilled className='text-3xl cursor-pointer hover:scale-110 duration-500 transition-all' /> */}
+                <SettingFilled className='text-3xl cursor-pointer hover:scale-110 duration-500 transition-all' />
                 <Badge size="small" className='text-white' count={products.length}>
                     <ShopFilled className='text-3xl cursor-pointer  hover:scale-110 duration-500 transition-all' />
                 </Badge>
-            </div>
+            </div> */}
 
         </div>
         {pathname == "/" && <img className="absolute w-full object-cover top-0 -z-10 md:h-[1084px]  max-sm:h-[542px] h-[542px]" src="Rectangle 1441.png" />}

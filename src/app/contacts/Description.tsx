@@ -5,7 +5,7 @@ import Item from "antd/es/descriptions/Item";
 export function Description() {
     return (
         <Descriptions 
-            className="max-w-[300px] bg-white rounded-lg p-4 shadow-sm" 
+            className=" bg-white rounded-lg p-4 shadow-sm" 
             layout="vertical" 
             title={<h2 className="text-xl font-bold text-[#1E1E1E] mb-4">Контактные данные</h2>}
         >

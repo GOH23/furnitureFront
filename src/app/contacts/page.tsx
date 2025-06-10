@@ -11,12 +11,12 @@ export default async function Examples() {
     return (
         <main className="min-h-dvh py-8 px-4">
             <h1 className="font-bold text-[#1E1E1E] text-[42px] max-sm:text-[30px] text-center mb-8">
-                Отзывы наших клиентов
+                Контакты
             </h1>
             <div className="flex justify-center items-start gap-8 flex-wrap max-w-6xl mx-auto">
-                <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md">
+                <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-md w-full max-w-2xl mx-auto">
                     <Description />
-                    <div className="flex gap-4 mt-6">
+                    <div className="flex justify-center gap-8 mt-8">
                         <ContactButton href="" target="_blank" className="hover:scale-110 transition-transform">
                             <RiTelegram2Fill className="text-2xl" />
                         </ContactButton>
