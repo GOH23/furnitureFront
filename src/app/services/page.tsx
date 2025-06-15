@@ -8,4 +8,4 @@ export default async function Services() {
     return (
         <ServicePage category={categories}/>
     );
-}
+}   

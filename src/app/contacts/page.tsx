@@ -30,11 +30,7 @@ export default async function Examples() {
                 </div>
 
                 <div className="w-full lg:w-[500px] h-[400px] rounded-lg overflow-hidden shadow-md">
-                    <iframe 
-                        className="w-full h-full" 
-                        src="https://yandex.ru/map-widget/v1/?um=constructor%3Af2ee9d0c2b0b9f605601536fc1023cd720e1b230f8e21e847d7742a7d501b5b9&amp;source=constructor"
-                        frameBorder="0"
-                    />
+                    <iframe className="w-full h-full" src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa31b9e8c864b9348c5587aaa2208d1be0c091d1f8a304691b79ffb68523b7450&amp;source=constructor"></iframe>
                 </div>
             </div>
         </main>

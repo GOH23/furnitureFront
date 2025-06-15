@@ -8,7 +8,7 @@ export default function PersonalCard({ userPhoto, Name, userTelegramName }: Pers
         <Popover placement="top" title={<p className="text-black text-center font-bold">{Name}</p>} content={<div className="flex justify-center">
             <Link href={userTelegramName ? `https://t.me/${userTelegramName}` : ""} className="bg-blue-500  hover:bg-blue-400 transition-all duration-500 p-2 rounded-md text-white hover:text-white" target="_blank">Написать в телеграм</Link>
         </div>}>
-            <img className="h-[350px] w-fit border rounded-md" src={BACKEND_URL + userPhoto} alt="" />
+            <img className="h-[350px] w-fit border rounded-md" src={userPhoto?.startsWith("/") ? BACKEND_URL + userPhoto : userPhoto} alt="" />
         </Popover>
     </div>
 }

@@ -10,7 +10,7 @@ export default function Footer() {
         </div>
         <div className=" col-span-1 max-sm:col-span-full flex flex-col gap-y-4 justify-center">
             <p className="text-[#F6973F] text-[17px] mb-2">Наши социальные сети</p>
-            <Link className="flex gap-x-3 justify-center items-center text-[17px] text-[#1E1E1E] hover:text-[#F6973F] transition-colors" href={''}>
+            <Link className="flex gap-x-3 justify-center items-center text-[17px] text-[#1E1E1E] hover:text-[#F6973F] transition-colors" href={'https://t.me/PeretyajkaRF'}>
                 <RiTelegram2Fill className="text-xl" />
                 <p className="text-center">Наш телеграм</p>
             </Link>

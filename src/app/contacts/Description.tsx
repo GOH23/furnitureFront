@@ -10,7 +10,7 @@ export function Description() {
             title={<h2 className="text-xl font-bold text-[#1E1E1E] mb-4">Контактные данные</h2>}
         >
             <Item label={<span className="text-[#1E1E1E] font-medium">Наш адрес</span>}>
-                г. Орехово-Зуевский р-н п. Верея
+                Г. Орехово-Зуево Северная улица, 30вл1
             </Item>
             <Item label={<span className="text-[#1E1E1E] font-medium">Наш телефон</span>}>
                 <a 
