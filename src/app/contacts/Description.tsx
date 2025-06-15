@@ -17,7 +17,7 @@ export function Description() {
                     className="text-[#E58411] hover:text-[#E58411]/80 transition-colors duration-300 flex items-center gap-2" 
                     href="tel:8999999999"
                 >
-                    <span>Позвонить</span>
+                    <span>+7 (952) 985-60-76</span>
                 </a>
             </Item>
         </Descriptions>

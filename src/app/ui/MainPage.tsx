@@ -366,52 +366,71 @@ export function MainPage({ category }: { category: category_type[] }) {
                         <SwiperSlide className="p-5">
                             <ReviewsCard Data={{
                                 StarValue: 5,
-                                TgUserName: "MariaK",
-                                ImageAfter: "/reviews/noroot_9_.jpg",
-                                ImageBefore: "/reviews/noroot_8_.jpg",
-                                Comment: "Превосходное качество работы! Очень довольна результатом!"
+                                Name: "Иванова",
+                                Comment: "Работа выполнена на ура, всё сделали в срок. Спасибо большое!"
                             }} />
                         </SwiperSlide>
                         <SwiperSlide className="p-5">
                             <ReviewsCard Data={{
                                 StarValue: 4,
-                                TgUserName: "Alex78",
-                                ImageAfter: "/reviews/noroot_9_.jpg",
-                                ImageBefore: "/reviews/noroot_8_.jpg",
-                                Comment: "Отличная работа, сделали всё вовремя. Рекомендую!"
+                                Name: "Петров",
+                                Comment: "Очень довольна результатом, мастер справился на отлично. Рекомендую!"
                             }} />
                         </SwiperSlide>
                         <SwiperSlide className="p-5">
                             <ReviewsCard Data={{
                                 StarValue: 5,
-                                ImageAfter: "/reviews/noroot_9_.jpg",
-                                ImageBefore: "/reviews/noroot_8_.jpg",
-                                Name: "Елена",
-                                Comment: "Просто потрясающий результат! Мебель как новая!"
-                            }} />
-                        </SwiperSlide>
-                        <SwiperSlide className="p-5">
-                            <ReviewsCard Data={{
-                                StarValue: 5,
-                                ImageAfter: "/reviews/noroot_9_.jpg",
-                                ImageBefore: "/reviews/noroot_8_.jpg",
-                                Comment: "Высокое качество материалов и исполнения!"
+                                Name: "Сидорова",
+                                Comment: "Всё сделали быстро и качественно. Спасибо за отличную работу!"
                             }} />
                         </SwiperSlide>
                         <SwiperSlide className="p-5">
                             <ReviewsCard Data={{
                                 StarValue: 4,
-                                ImageAfter: "/reviews/noroot_9_.jpg",
-                                ImageBefore: "/reviews/noroot_8_.jpg",
-                                Comment: "Очень приятно работать с профессионалами!"
+                                Name: "Козлов",
+                                Comment: "Мастер молодец, всё аккуратно и вовремя. Рекомендую всем!"
                             }} />
                         </SwiperSlide>
                         <SwiperSlide className="p-5">
                             <ReviewsCard Data={{
                                 StarValue: 5,
-                                ImageAfter: "/reviews/noroot_9_.jpg",
-                                ImageBefore: "/reviews/noroot_8_.jpg",
-                                Comment: "Идеальная работа! Буду обращаться снова!"
+                                Name: "Смирнова",
+                                Comment: "Результат превзошел ожидания, работа выполнена профессионально. Спасибо!"
+                            }} />
+                        </SwiperSlide>
+                        <SwiperSlide className="p-5">
+                            <ReviewsCard Data={{
+                                StarValue: 4,
+                                Name: "Новиков",
+                                Comment: "Очень рада, что обратилась именно к вам. Всё сделали вовремя и качественно."
+                            }} />
+                        </SwiperSlide>
+                        <SwiperSlide className="p-5">
+                            <ReviewsCard Data={{
+                                StarValue: 5,
+                                Name: "Морозова",
+                                Comment: "Отличная работа, всё чётко и в срок. Спасибо за профессионализм!"
+                            }} />
+                        </SwiperSlide>
+                        <SwiperSlide className="p-5">
+                            <ReviewsCard Data={{
+                                StarValue: 4,
+                                Name: "Волков",
+                                Comment: "Всё прошло гладко, мастер знает своё дело. Рекомендую без сомнений!"
+                            }} />
+                        </SwiperSlide>
+                        <SwiperSlide className="p-5">
+                            <ReviewsCard Data={{
+                                StarValue: 5,
+                                Name: "Лебедева",
+                                Comment: "Качество работы на высоте, рекомендую всем, кто ищет надёжного мастера."
+                            }} />
+                        </SwiperSlide>
+                        <SwiperSlide className="p-5">
+                            <ReviewsCard Data={{
+                                StarValue: 4,
+                                Name: "Соколов",
+                                Comment: "Спасибо за быструю и аккуратную работу. Очень довольна результатом!"
                             }} />
                         </SwiperSlide>
                     </Swiper>

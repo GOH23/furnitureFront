@@ -2,13 +2,34 @@
 import Link from "next/link";
 import { BACKEND_URL } from "../hooks/constants";
 import { PersonalType } from "../TeamPage";
-import { Image, Popover } from 'antd'
+import { motion } from 'framer-motion';
+
 export default function PersonalCard({ userPhoto, Name, userTelegramName }: PersonalType) {
-    return <div className="max-h-[350px] flex flex-col items-center p-1 justify-center rounded-xl  duration-700">
-        <Popover placement="top" title={<p className="text-black text-center font-bold">{Name}</p>} content={<div className="flex justify-center">
-            <Link href={userTelegramName ? `https://t.me/${userTelegramName}` : ""} className="bg-blue-500  hover:bg-blue-400 transition-all duration-500 p-2 rounded-md text-white hover:text-white" target="_blank">Написать в телеграм</Link>
-        </div>}>
-            <img className="h-[350px] w-fit border rounded-md" src={userPhoto?.startsWith("/") ? BACKEND_URL + userPhoto : userPhoto} alt="" />
-        </Popover>
-    </div>
+    return (
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 max-w-[300px] w-full"
+        >
+            <div className="w-[250px] h-[250px] overflow-hidden rounded-lg mb-4">
+                <img 
+                    className="w-full h-full object-cover" 
+                    src={userPhoto?.startsWith("/") ? BACKEND_URL + userPhoto : userPhoto} 
+                    alt={Name} 
+                />
+            </div>
+            <p className="text-black text-center font-bold text-lg mb-2">{userTelegramName}</p>
+            {userTelegramName && (
+                <Link 
+                    href={`https://t.me/${userTelegramName}`}
+                    target="_blank"
+                    className="bg-[#E58411] hover:bg-[#d77300] transition-all duration-300 px-4 py-2 rounded-md text-white w-full text-center"
+                >
+                    Написать в телеграм
+                </Link>
+            )}
+        </motion.div>
+    );
 }
