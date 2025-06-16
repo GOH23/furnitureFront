@@ -15,12 +15,12 @@ export default function PersonalCard({ userPhoto, Name, userTelegramName }: Pers
         >
             <div className="w-[250px] h-[250px] overflow-hidden rounded-lg mb-4">
                 <img 
-                    className="w-full h-full object-cover" 
+                    className="w-full h-full object-contain" 
                     src={userPhoto?.startsWith("/") ? BACKEND_URL + userPhoto : userPhoto} 
                     alt={Name} 
                 />
             </div>
-            <p className="text-black text-center font-bold text-lg mb-2">{userTelegramName}</p>
+            <p className="text-black mt-auto text-center font-bold text-lg mb-2">{userTelegramName}</p>
             {userTelegramName && (
                 <Link 
                     href={`https://t.me/${userTelegramName}`}

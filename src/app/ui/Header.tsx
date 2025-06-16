@@ -47,7 +47,7 @@ export default function Header() {
                 <Button OnClick={() => SetMenuOpened(!MenuOpened)} Icon={!MenuOpened ? RxHamburgerMenu : IoMdClose}></Button>
             </div>
             <div className='mr-auto  font-bold text-[28px]'>
-                <Link href={'/'}><img className="max-h-[40px]" src="/Architecture-PNG-Images-HD.png" alt=""/></Link>
+                <Link href={'/'}><img className="max-h-[40px]" src="/Architecture-PNG-Images-HD.jpg" alt=""/></Link>
             </div>
             <div className="max-sm:hidden flex flex-row basis-1/2 justify-around">
                 {Service.loading ? <></> : <HeaderItem toPath="/services" text="Услуги" subItems={Service.categories?.map((el) => { return { text: el.serviceName, toPath: `/services?furnitureName=${el.serviceName}` } })} />}
