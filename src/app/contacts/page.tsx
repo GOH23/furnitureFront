@@ -17,15 +17,15 @@ export default async function Examples() {
                 <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-md w-full max-w-2xl mx-auto">
                     <Description />
                     <div className="flex justify-center gap-8 mt-8">
-                        <ContactButton href="" target="_blank" className="hover:scale-110 transition-transform">
+                        <ContactButton href='https://t.me/PeretyajkaRF' target="_blank" className="hover:scale-110 transition-transform">
                             <RiTelegram2Fill className="text-2xl" />
                         </ContactButton>
-                        <ContactButton href="" target="_blank" className="hover:scale-110 transition-transform">
+                        {/* <ContactButton href="" target="_blank" className="hover:scale-110 transition-transform">
                             <FaVk className="text-2xl" />
                         </ContactButton>
                         <ContactButton href="" target="_blank" className="hover:scale-110 transition-transform">
                             <WhatsAppOutlined className="text-2xl" />
-                        </ContactButton>
+                        </ContactButton> */}
                     </div>
                 </div>
 
