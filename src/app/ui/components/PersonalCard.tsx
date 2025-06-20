@@ -21,15 +21,7 @@ export default function PersonalCard({ userPhoto, Name, userTelegramName }: Pers
                 />
             </div>
             <p className="text-black mt-auto text-center font-bold text-lg mb-2">{userTelegramName}</p>
-            {userTelegramName && (
-                <Link 
-                    href={`https://t.me/${userTelegramName}`}
-                    target="_blank"
-                    className="bg-[#E58411] hover:bg-[#d77300] transition-all duration-300 px-4 py-2 rounded-md text-white w-full text-center"
-                >
-                    Написать в телеграм
-                </Link>
-            )}
+           
         </motion.div>
     );
 }
